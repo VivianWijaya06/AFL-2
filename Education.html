@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ur Vege</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+        .navbar-nav {
+            margin-left: auto;
+            font-family: "Open Sans", sans-serif;
+            font-style: normal;
+            }
+
+        .nav-link.active {
+            border-bottom: 2px solid black !important; 
+            border-radius: 0 !important; 
+            padding-bottom: 4px !important; 
+            margin-bottom: -2px !important; 
+        }
+
+        .navbar-collapse {
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .subscribe-form {
+        display: flex;
+        flex-direction: column;
+        }
+    
+        .input-line {
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .email-input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            padding: 5px 0;
+            font-size: 1px;
+            font-family: "Open Sans", sans-serif;
+        }
+        
+        .subscribe-button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            border-radius: 100px;
+            width: 94px;
+            height: 21px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;         
+            justify-content: center; 
+            align-items: center;  
+            font-family: "Open Sans", sans-serif;  
+            box-shadow: 0 2px 0 #B9B9B9; 
+        }
+        
+        .subscribe-button:hover {
+            background-color: black;
+            color: white;
+            border-color: black;
+        }
+
+        .subscribe-btn:active {
+            transform: translateY(2px); 
+        }
+
+        footer{
+            font-family: "Open Sans", sans-serif;
+        }
+        
+        .education-timeline-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .schools-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 50px;
+        }
+
+        .school-logo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            min-width: 0;
+        }
+
+        .school-logo img {
+            max-width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .timeline-line-container {
+            position: relative;
+            height: 20px;
+            margin: auto;
+            width: 100%; 
+        }
+
+        .timeline-line {
+            height: 10px;
+            background-color: black;
+            width: 100%;
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: black;
+            z-index: 2;
+        }
+
+        .years-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0 100px;
+            padding: 0 50px;
+        }
+
+        .year {
+            flex: 1;
+            text-align: center;
+            font-family: "Open Sans", sans-serif;
+            font-weight: bold;
+            min-width: 0;
+            padding: 0 5px;
+        }
+
+        .timeline-dot:nth-child(1) { left: 20%; }
+        .timeline-dot:nth-child(2) { left: 15%; }
+        .timeline-dot:nth-child(3) { left: 38%; }
+        .timeline-dot:nth-child(4) { left: 59.5%; }
+        .timeline-dot:nth-child(5) { left: 82%; }
+
+        @media (max-width: 768px) {
+            .schools-row, .years-row {
+                padding: 0 20px;
+            }
+            
+            .timeline-line-container {
+                width: calc(100% - 40px);
+            }
+            
+            .school-logo img {
+                max-height: 100px;
+            }
+            
+            .year {
+                font-size: 24px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #FFF8DA; border-bottom: 2px solid #B9B9B9; padding: 10px 0;">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="padding: 8px 15px; margin-left: 35px; border-radius: 5px";>
+            <img src="logo.png" alt="Logo" width="130" height="50" class="d-inline-block align-text-top" style="margin-left: 30px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto" style="margin-right: 20px;">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="Home.html" style="padding: 8px 15px; margin: 0 20px; border-radius: 5px; font-weight: 500; font-size: 20px;">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="About.html" style="padding: 8px 15px; margin: 0 20px; border-radius: 5px; font-weight: 500; font-size: 20px;">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Saved.html" style="padding: 8px 15px; margin: 0 20px; border-radius: 5px; font-weight: 500; font-size: 20px;">Saved</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Recipes.html" style="padding: 8px 15px; margin: 0 20px; border-radius: 5px; font-weight: 500; font-size: 20px;">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Review.html" style="padding: 8px 15px; margin: 0 20px; border-radius: 5px; font-weight: 500; font-size: 20px;">Review</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <h1 class="title" style="font-family: 'Life Savers', serif; font-weight: bolder; font-size: 40px; font-style: normal; padding: 60px 40px 0px 80px;">My Education</h1>  
+        <div class="education-timeline-container">
+
+            <div class="schools-row">
+                <div class="school-logo">
+                    <img src="SD.png" alt="SD">
+                </div>
+                <div class="school-logo">
+                    <img src="SMP.png" alt="SMP">
+                </div>
+                <div class="school-logo">
+                    <img src="SMA.jpg" alt="SMA">
+                </div>
+                <div class="school-logo">
+                    <img src="UC.png" alt="University">
+                </div>
+            </div>
+            
+            <div class="timeline-line-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="years-row">
+                <div class="year">2013-2018</div>
+                <div class="year">2018-2021</div>
+                <div class="year">2021-2024</div>
+                <div class="year">2024-Present</div>
+            </div>
+        </div>
+
+    <footer style="background-color: #FFFCEE; color: black; border-top: 2px solid #B9B9B9; padding: 10px 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <img src="footer.png" alt="Logo" width="130" height="70" style= "margin-top: 75px; margin-bottom: 30px; border-radius: 5px" class="d-inline-block align-text-top">
+                    <div class="subscribe-container">
+                        <div class="subscribe-title" style="font-size: 20px; margin-bottom: 10px;">Subscribe Now</div>
+                        <form class="subscribe-form">
+                            <div class="input-line d-flex align-items-center" style="width: 193px; border-bottom: 1px solid #333;">  
+                                <i class="fas fa-envelope me-2" style="color: black;"></i>  
+                                <input type="email" class="email-input flex-grow-1" style="font-size: 15px; border: none; outline: none; background: transparent;" placeholder="Enter Your Email" required>
+                            </div>
+                            <button type="submit" class="subscribe-button" style="margin-bottom: 30px; margin-left: auto; margin-right: auto;">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div style="margin-left: 30px;">
+                        <ul style="list-style: none; margin-top: 75px; font-size: 20px;">
+                            <li style="margin-bottom: 15px;"><a href="Home.html" style="color: black; text-decoration: none;">Home</a></li>
+                            <li style="margin-bottom: 15px;"><a href="About.html" style="color: black; text-decoration: none;">About</a></li>
+                            <li style="margin-bottom: 15px;"><a href="Recipes.html" style="color: black; text-decoration: none;">Recipes</a></li>
+                            <li style="margin-bottom: 15px;"><a href="Review.html" style="color: black; text-decoration: none;">Review</a></li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="col-lg-3 col-md-6 ms-auto">  
+                    <div style="margin-left: 150px;  margin-top: 75px; font-size: 20px;">  
+                        <h5 class="mb-4" style="font-weight: 600;">Contact Us</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3" style="display: flex; align-items: center;">  
+                                <i class="fas fa-phone me-2"></i> <span style="color: #707070;">081356678979</span>
+                            </li>
+                            <li style="display: flex; align-items: center;"> 
+                                <i class="fas fa-envelope me-2"></i> <span style="color: #707070;">urvegan@gmail.com</span>
+                            </li>
+                            <li class="mt-3">
+                                <div style="display: flex; gap: 32px;">
+                                    <a href="https://www.facebook.com/?locale=id_ID" style="color: black; font-size: 30px;">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/" style="color: black; font-size: 30px;">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
